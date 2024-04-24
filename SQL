@@ -1,0 +1,26 @@
+use sys;
+INSERT INTO sinhvien (MSSV, HoTen, DiaChi) 
+VALUES 
+    ('21011415', 'Nguyen Cong Phong', 'Bac Ninh'),
+    ('21011416', 'Nguyen Van A', 'Ha Noi'),
+    ('21011417', 'Nguyen Thi B', 'Ha Noi');
+select * from sinhvien;
+INSERT INTO monhoc (MaMH, TenMH) 
+VALUES 
+    ('4515', 'WebNC'),
+    ('4552', 'OOP'),
+    ('4952', 'Testing');
+select * from monhoc;
+CREATE TABLE dangky (
+    Ky INT AUTO_INCREMENT PRIMARY KEY,
+    MSSV INT,
+    MaMH INT,
+    FOREIGN KEY (MSSV) REFERENCES sinhvien(MSSV),
+    FOREIGN KEY (MaMH) REFERENCES monhoc(MaMH)
+);
+INSERT INTO dangky (Ky, MSSV, MaMH) 
+VALUES 
+    ('1', '21011415', '4515'),
+    ('2', '21011415', '4552'),
+    ('3', '21011415', '4952');
+select * from dangky;
